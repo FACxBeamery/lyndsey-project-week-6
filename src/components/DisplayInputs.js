@@ -1,5 +1,5 @@
 import React from "react";
-import Test from "./Test";
+import DisplayPokemon from "./DisplayPokemon";
 import { getPokemonAPI } from "../utilFunctions/getPokemonAPI";
 
 const DisplayInputs = ({ pokemon, setPokemon, setState }) => {

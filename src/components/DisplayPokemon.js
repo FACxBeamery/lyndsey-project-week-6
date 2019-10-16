@@ -1,22 +1,35 @@
 import React from "react";
 import { getPokemonAPI } from "../utilFunctions/getPokemonAPI";
 
-const Test = ({ pokemon }) => {
+const DisplayPokemon = ({ pokemon }) => {
 	const [pokemonData, setPokemonData] = React.useState({});
 	React.useEffect(() => {
 		getPokemonAPI(pokemon).then((data) => {
-			setPokemonData(data);
+			setPokemonData({
+				pokemonName: data.name,
+				moveName1: data.moves[0].move.name,
+				moveName2: data.moves[1].move.name
+			});
 			console.log(data);
 		});
 	}, []);
-	const { name } = pokemonData;
+	const { moveName1, moveName2, pokemonName } = pokemonData;
+
 	return pokemonData ? (
 		<div>
-			<p>{name}</p>
+			<p>{pokemonName}</p>
+			<p>{moveName1}</p>
+			<p>{moveName2}</p>
 		</div>
 	) : null;
 };
-export default Test;
+export default DisplayPokemon;
+
+// moves: Array(91)
+// 0:
+// move: {name: "mega-punch", url: "https://pokeapi.co/api/v2/move/5/"}
+// version_group_details: (4) [{…}, {…}, {…}, {…}]
+// __proto__: Object
 
 // abilities: (2) [{…}, {…}]
 // base_experience: 63

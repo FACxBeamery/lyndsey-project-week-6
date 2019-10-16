@@ -3,7 +3,8 @@ import React from "react";
 import "./App.css";
 import { getPokemonAPI } from "./utilFunctions/getPokemonAPI";
 import DisplayInputs from "./components/DisplayInputs";
-import Test from "./components/Test";
+import Test from "./components/DisplayPokemon";
+import DisplayPokemon from "./components/DisplayPokemon";
 
 function App() {
 	const [pokemon, setPokemon] = React.useState(undefined);
@@ -17,7 +18,7 @@ function App() {
 					setPokemon={setPokemon}
 					pokemon={pokemon}
 				/>
-				{pokemon ? <Test pokemon={pokemon} /> : ""}
+				{pokemon ? <DisplayPokemon pokemon={pokemon} /> : ""}
 			</div>
 		</main>
 	);
