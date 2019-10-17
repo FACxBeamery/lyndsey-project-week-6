@@ -13,12 +13,7 @@ const fightersDB = require("../fighters");
 // fighterMove1 = newFighter.move1;
 // fighterMove2 = newFighter.move2;
 
-const DisplayFighters = ({
-	fighter,
-	fighterName,
-	setFighterName,
-	setFighter
-}) => {
+const DisplayFighters = ({ fighter, fighterName, setFighter, state }) => {
 	// const [fighterData, setFighterData] = React.useState({});
 	React.useEffect(() => {
 		console.log(fightersDB[0]);
@@ -33,7 +28,7 @@ const DisplayFighters = ({
 			fighterMove1: newFighter.move1,
 			fighterMove2: newFighter.move2
 		});
-	}, []);
+	}, [fighterName, setFighter, state]);
 	const { fighterMove1, fighterMove2 } = fighter;
 
 	return fighter ? (

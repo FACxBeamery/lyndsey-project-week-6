@@ -7,8 +7,8 @@ import DisplayPokemon from "./components/DisplayPokemon";
 import DisplayFighters from "./components/DisplayFighters";
 
 function App() {
-	const [pokemon, setPokemon] = React.useState(undefined);
-	const [fighter, setFighter] = React.useState(undefined);
+	const [pokemon, setPokemon] = React.useState({});
+	const [fighter, setFighter] = React.useState({});
 	const [pokemonName, setPokemonName] = React.useState("");
 	const [fighterName, setFighterName] = React.useState("");
 
@@ -29,22 +29,21 @@ function App() {
 						state={state}
 						pokemon={pokemon}
 						pokemonName={pokemonName}
-						setPokemonName={setPokemonName}
 						setPokemon={setPokemon}
 					/>
 				) : (
 					""
 				)}
-				{/* {fighterName ? (
+				{fighterName ? (
 					<DisplayFighters
+						state={state}
 						fighter={fighter}
 						fighterName={fighterName}
-						setFighterName={setFighterName}
 						setFighter={setFighter}
 					/>
 				) : (
 					""
-				)} */}
+				)}
 			</div>
 		</main>
 	);

@@ -1,19 +1,17 @@
 import React from "react";
 import { getPokemonAPI } from "../utilFunctions/getPokemonAPI";
 
-const DisplayPokemon = ({ pokemon, pokemonName, setPokemonName, state }) => {
+const DisplayPokemon = ({ pokemon, pokemonName, setPokemon, state }) => {
 	React.useEffect(() => {
-		if (state) {
-			getPokemonAPI(pokemonName).then((data) => {
-				setPokemonName({
-					pokemonName1: data.name,
-					moveName1: data.moves[0].move.name,
-					moveName2: data.moves[1].move.name
-				});
-				console.log(data);
+		getPokemonAPI(pokemonName).then((data) => {
+			console.log(data);
+			setPokemon({
+				pokemonName1: data.name,
+				moveName1: data.moves[0].move.name,
+				moveName2: data.moves[1].move.name
 			});
-		}
-	}, []);
+		});
+	}, [pokemonName, setPokemon, state]);
 	const { moveName1, moveName2, pokemonName1 } = pokemon;
 
 	return pokemon ? (
