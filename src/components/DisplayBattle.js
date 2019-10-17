@@ -15,7 +15,7 @@ const DisplayBattle = ({
 		if (e) {
 			e.preventDefault();
 			setFinalPokemonName(finalPokemonNameEntered);
-			setState((state) => state + 2);
+			setState((state) => state + 1);
 			console.log(pokemonName);
 		}
 	};
