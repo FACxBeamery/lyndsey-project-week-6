@@ -5,7 +5,7 @@ const fighters = [
 		move2: "drag"
 	},
 	{
-		name: "Joao",
+		name: "João",
 		move1: "argue",
 		move2: "drag"
 	},
@@ -28,5 +28,22 @@ const fighters = [
 		name: "Martha",
 		move1: "argue",
 		move2: "drag"
+	},
+	{
+		name: "Oliver",
+		move1: "argue",
+		move2: "drag"
+	},
+	{
+		name: "Kristina",
+		move1: "argue",
+		move2: "drag"
+	},
+	{
+		name: "Michael",
+		move1: "argue",
+		move2: "drag"
 	}
 ];
+
+module.exports = fighters;

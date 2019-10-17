@@ -2,17 +2,32 @@ import React from "react";
 import DisplayPokemon from "./DisplayPokemon";
 import { getPokemonAPI } from "../utilFunctions/getPokemonAPI";
 
-const DisplayInputs = ({ pokemon, setPokemon, setState }) => {
-	const [pokemonName, setPokemonName] = React.useState("");
+const DisplayInputs = ({
+	setState,
+	setPokemonName,
+	setFighterName,
+	pokemonName,
+	fighterName
+}) => {
+	const [pokemonNameEntered, setPokemonNameEntered] = React.useState("");
+	const [fighterNameEntered, setFighterNameEntered] = React.useState("");
 
 	const handleSubmit = (e) => {
-		e.preventDefault();
-		setPokemon(pokemonName);
-		setState(1);
-		// setPokemon(data.name);
+		if (e) {
+			e.preventDefault();
+			setPokemonName(pokemonNameEntered);
+			setFighterName(fighterNameEntered);
+			setState((state) => state + 1);
+			console.log(pokemonName);
+			console.log(fighterName);
+		}
 	};
-	const handleOnChange = (e) => {
-		setPokemonName(e.target.value);
+
+	const handleOnChange1 = (e) => {
+		setPokemonNameEntered(e.target.value);
+	};
+	const handleOnChange2 = (e) => {
+		setFighterNameEntered(e.target.value);
 	};
 
 	return (
@@ -22,6 +37,8 @@ const DisplayInputs = ({ pokemon, setPokemon, setState }) => {
 				name="name-query"
 				id="name-query"
 				placeholder="Enter your name"
+				onChange={handleOnChange2}
+				value={fighterNameEntered}
 			/>
 			Please enter your name, warrior
 			<input
@@ -29,7 +46,8 @@ const DisplayInputs = ({ pokemon, setPokemon, setState }) => {
 				name="search-query"
 				id="search-query"
 				placeholder="Search for a pokemon"
-				onChange={handleOnChange}
+				onChange={handleOnChange1}
+				value={pokemonNameEntered}
 			/>
 			<button type="submit" id="submit-request" className="button">
 				Find me it!
