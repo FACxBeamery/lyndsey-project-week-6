@@ -1,27 +1,26 @@
 import React from "react";
 import { getPokemonAPI } from "../utilFunctions/getPokemonAPI";
 
-const DisplayPokemon = ({
-	pokemon,
-	pokemonName,
-	setPokemon,
+const DisplayFinalResult = ({
+	finalPokemon,
+	finalPokemonName,
+	setFinalPokemon,
 	state,
 	pokemonMove,
 	setPokemonMove
 }) => {
 	React.useEffect(() => {
-		getPokemonAPI(pokemonName).then((data) => {
-			setPokemon({
+		getPokemonAPI(finalPokemonName).then((data) => {
+			setFinalPokemon({
 				pokemonName1: data.name,
 				moveName1: data.moves[0].move.name,
 				moveName2: data.moves[1].move.name
 			});
 		});
-	}, [pokemonName, setPokemon, state]);
+	}, [finalPokemonName, setFinalPokemon, state]);
+	const { moveName1, moveName2, pokemonName1 } = finalPokemon;
 
-	const { moveName1, moveName2, pokemonName1 } = pokemon;
-
-	return pokemon ? (
+	return finalPokemon ? (
 		<div>
 			Pokemon Move
 			<form>
@@ -43,4 +42,5 @@ const DisplayPokemon = ({
 		</div>
 	) : null;
 };
-export default DisplayPokemon;
+
+export default DisplayFinalResult;
