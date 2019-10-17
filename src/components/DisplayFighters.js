@@ -1,28 +1,27 @@
 import React from "react";
 const fightersDB = require("../fighters");
 
-// const findFighterName = (fighterName1) => {
-// 	let fighterName;
-// 	let fighterMove1;
-// 	let fighterMove2;
-// 	const newFighter = fighters.filter(
-// 		(fighter) => fighter.name === fighterName1
-// 	)[0];
-// 	return newFighter;
-// fighterName = newFighter.name;
-// fighterMove1 = newFighter.move1;
-// fighterMove2 = newFighter.move2;
-
 const DisplayFighters = ({ fighter, fighterName, setFighter, state }) => {
-	// const [fighterData, setFighterData] = React.useState({});
+	// const [fighterMoveEntered, setFighterMoveEntered] = React.useState("");
+
+	const [fighterMove, setFighterMove] = React.useState("");
+	const handleFighterMoveSubmit = (e) => {
+		if (e) {
+			e.preventDefault();
+
+			console.log(fighterMove);
+		}
+	};
+
+	// const handleMoveOnChange = (e) => {
+	// 	setFighterMoveEntered(e.target.value);
+	// };
+
 	React.useEffect(() => {
-		console.log(fightersDB[0]);
-		let fighterMove1;
-		let fighterMove2;
 		const newFighter = fightersDB.filter(
 			(fighter) => fighter.name === fighterName
 		)[0];
-		console.log(newFighter);
+
 		setFighter({
 			fighterName: newFighter.name,
 			fighterMove1: newFighter.move1,
@@ -33,9 +32,21 @@ const DisplayFighters = ({ fighter, fighterName, setFighter, state }) => {
 
 	return fighter ? (
 		<div>
-			<p>{fighterName}</p>
-			<p>{fighterMove1}</p>
-			<p>{fighterMove2}</p>
+			Fighter Move
+			<form onSubmit={handleFighterMoveSubmit}>
+				<select
+					name={fighterName}
+					onChange={(event) => setFighterMove(event.target.value)}
+				>
+					<option hidden disabled selected value>
+						{" "}
+						-- select a FAC fighter move --{" "}
+					</option>
+					<option value={fighterMove1}>{fighterMove1} </option>
+					<option value={fighterMove2}>{fighterMove2}</option>
+				</select>
+				<button type="submit"> submit </button>
+			</form>
 		</div>
 	) : null;
 };

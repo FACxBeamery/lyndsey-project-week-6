@@ -2,9 +2,22 @@ import React from "react";
 import { getPokemonAPI } from "../utilFunctions/getPokemonAPI";
 
 const DisplayPokemon = ({ pokemon, pokemonName, setPokemon, state }) => {
+	//const [pokemonMoveEntered, setPokemonMoveEntered] = React.useState("");
+	const [pokemonMove, setPokemonMove] = React.useState("");
+	const handlePokemonMoveSubmit = (e) => {
+		if (e) {
+			e.preventDefault();
+
+			//setState((state) => state + 1);
+			console.log(pokemonMove);
+		}
+	};
+
+	// const handleMoveOnChange = (e) => {
+	// 	setPokemonMoveEntered(e.target.value);
+	// };
 	React.useEffect(() => {
 		getPokemonAPI(pokemonName).then((data) => {
-			console.log(data);
 			setPokemon({
 				pokemonName1: data.name,
 				moveName1: data.moves[0].move.name,
@@ -16,34 +29,32 @@ const DisplayPokemon = ({ pokemon, pokemonName, setPokemon, state }) => {
 
 	return pokemon ? (
 		<div>
-			<p>{pokemonName1}</p>
-			<p>{moveName1}</p>
-			<p>{moveName2}</p>
+			Pokemon Move
+			<form onSubmit={handlePokemonMoveSubmit}>
+				<select
+					name={pokemonName1}
+					onChange={(event) => setPokemonMove(event.target.value)}
+				>
+					<option hidden disabled selected value>
+						{" "}
+						-- select a pokemon move --{" "}
+					</option>
+					<option value={moveName1}>{moveName1}</option>
+					<option value={moveName2}>{moveName2}</option>
+				</select>
+				<input type="submit" />
+			</form>
 		</div>
 	) : null;
 };
 export default DisplayPokemon;
 
-// moves: Array(91)
-// 0:
-// move: {name: "mega-punch", url: "https://pokeapi.co/api/v2/move/5/"}
-// version_group_details: (4) [{…}, {…}, {…}, {…}]
-// __proto__: Object
-
-// abilities: (2) [{…}, {…}]
-// base_experience: 63
-// forms: [{…}]
-// game_indices: (20) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-// height: 5
-// held_items: []
-// id: 7
-// is_default: true
-// location_area_encounters: "https://pokeapi.co/api/v2/pokemon/7/encounters"
-// moves: (91) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-// name: "squirtle"
-// order: 10
-// species: {name: "squirtle", url: "https://pokeapi.co/api/v2/pokemon-species/7/"}
-// sprites: {back_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/7.png", back_female: null, back_shiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/7.png", back_shiny_female: null, front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png", …}
-// stats: (6) [{…}, {…}, {…}, {…}, {…}, {…}]
-// types: [{…}]
-// weight: 90
+// <form action="/action_page.php">
+// <select name="cars">
+//   <option value="volvo">Volvo XC90</option>
+//   <option value="saab">Saab 95</option>
+//   <option value="mercedes">Mercedes SLK</option>
+//   <option value="audi">Audi TT</option>
+// </select>
+// <input type="submit" value="Submit">
+// </form>
