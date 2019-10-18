@@ -1,20 +1,20 @@
 import React from "react";
 const fightersDB = require("../fighters");
 
-const DisplayFighters = ({ fighter, fighterName, setFighter, state }) => {
-	// const [fighterMoveEntered, setFighterMoveEntered] = React.useState("");
+const DisplayFighters = ({
+	fighter,
+	fighterName,
+	setFighter,
+	state,
+	fighterMove,
+	setFighterMove
+}) => {
+	// const handleFighterMoveSubmit = (e) => {
+	// 	if (e) {
+	// 		e.preventDefault();
 
-	const [fighterMove, setFighterMove] = React.useState("");
-	const handleFighterMoveSubmit = (e) => {
-		if (e) {
-			e.preventDefault();
-
-			console.log(fighterMove);
-		}
-	};
-
-	// const handleMoveOnChange = (e) => {
-	// 	setFighterMoveEntered(e.target.value);
+	// 		console.log(fighterMove);
+	// 	}
 	// };
 
 	React.useEffect(() => {
@@ -28,15 +28,19 @@ const DisplayFighters = ({ fighter, fighterName, setFighter, state }) => {
 			fighterMove2: newFighter.move2
 		});
 	}, [fighterName, setFighter, state]);
+
 	const { fighterMove1, fighterMove2 } = fighter;
 
 	return fighter ? (
 		<div>
 			Fighter Move
-			<form onSubmit={handleFighterMoveSubmit}>
+			<form>
 				<select
 					name={fighterName}
-					onChange={(event) => setFighterMove(event.target.value)}
+					onChange={(event) => {
+						event.preventDefault();
+						setFighterMove(event.target.value);
+					}}
 				>
 					<option hidden disabled selected value>
 						{" "}
@@ -45,7 +49,6 @@ const DisplayFighters = ({ fighter, fighterName, setFighter, state }) => {
 					<option value={fighterMove1}>{fighterMove1} </option>
 					<option value={fighterMove2}>{fighterMove2}</option>
 				</select>
-				<button type="submit"> submit </button>
 			</form>
 		</div>
 	) : null;

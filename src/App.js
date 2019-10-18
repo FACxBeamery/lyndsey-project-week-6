@@ -6,6 +6,7 @@ import DisplayInputs from "./components/DisplayInputs";
 import DisplayPokemon from "./components/DisplayPokemon";
 import DisplayFighters from "./components/DisplayFighters";
 import DisplayBattle from "./components/DisplayBattle";
+import DisplayFinalResult from "./components/DisplayFinalResult";
 
 function App() {
 	const [pokemon, setPokemon] = React.useState({});
@@ -14,7 +15,8 @@ function App() {
 	const [fighterName, setFighterName] = React.useState("");
 	const [pokemonMove, setPokemonMove] = React.useState("");
 	const [fighterMove, setFighterMove] = React.useState("");
-
+	const [finalPokemonName, setFinalPokemonName] = React.useState("");
+	const [finalPokemon, setFinalPokemon] = React.useState("");
 	const [state, setState] = React.useState(0);
 	return (
 		<main>
@@ -34,7 +36,7 @@ function App() {
 						pokemonName={pokemonName}
 						setPokemon={setPokemon}
 						pokemonMove={pokemonMove}
-						setPokemonMove={pokemonMove}
+						setPokemonMove={setPokemonMove}
 					/>
 				) : (
 					""
@@ -46,19 +48,34 @@ function App() {
 						fighterName={fighterName}
 						setFighter={setFighter}
 						fighterMove={fighterMove}
-						setFighterMove={fighterMove}
+						setFighterMove={setFighterMove}
 					/>
 				) : (
 					""
 				)}
-				{/* <DisplayBattle
-					fighterMove1={fighterMove1}
-					fighterName={fighterName}
-					fighterMove2={fighterMove2}
-					pokemonName1={pokemonName}
-					moveName1={moveName1}
-					moveName2={moveName2}
-				/> */}
+				{pokemonMove && fighterMove ? (
+					<DisplayBattle
+						fighterMove={fighterMove}
+						pokemonMove={pokemonMove}
+						pokemonName={pokemonName}
+						setFinalPokemonName={setFinalPokemonName}
+						setState={setState}
+					/>
+				) : (
+					""
+				)}
+				{pokemonName ? (
+					<DisplayFinalResult
+						state={state}
+						finalPokemon={finalPokemon}
+						finalPokemonName={finalPokemonName}
+						setFinalPokemon={setFinalPokemon}
+						pokemonMove={pokemonMove}
+						setPokemonMove={setPokemonMove}
+					/>
+				) : (
+					""
+				)}
 			</div>
 		</main>
 	);
