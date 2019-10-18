@@ -5,6 +5,7 @@
 	justify-content: center;
 	flex-direction: row;
 	align-items: center;
+	font-size: 1.25rem;
 }
 
 .first--form--input {
@@ -13,7 +14,7 @@
 	font-size: 1rem;
 	border: none;
 	border: 0.25rem solid black;
-	margin-right: 1.5rem;
+	margin-right: 1rem;
 	color: #333;
 	padding: 0.5rem;
 	box-shadow: 0.25rem 0.25rem 0rem black;
@@ -26,8 +27,13 @@
 	font-family: "VT323", monospace;
 	font-weight: 500;
 	font-size: 1.5rem;
-	margin-top: 0.5rem;
 	margin-left: 0.5rem;
 	padding: 0.25rem;
 	box-shadow: 0.25rem 0.25rem 0rem black;
+}
+
+.first--form--input--error {
+	border: 0.25rem solid indianred;
+
+	box-shadow: 0.25rem 0.25rem 0rem indianred;
 }

@@ -25,6 +25,7 @@ function App() {
 		// <main>
 		<div className={styles["root"]}>
 			<h1> PokeFighter</h1>
+			<img src="https://cdn.pixabay.com/photo/2018/04/13/16/13/pixel-3316924_960_720.png"></img>
 			<DisplayInputs
 				setState={setState}
 				setPokemonName={setPokemonName}

@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./DisplayFightersPokemon.module.css";
 const fightersDB = require("../fighters");
 
 const DisplayFighters = ({
@@ -34,7 +35,7 @@ const DisplayFighters = ({
 	return fighter ? (
 		<div>
 			Fighter Move
-			<form>
+			<form className={styles["fighter-move--form"]}>
 				<select
 					name={fighterName}
 					onChange={(event) => {

@@ -13,3 +13,12 @@ h1 {
 	font-size: 6rem;
 	font-weight: 700;
 }
+
+img {
+	height: 25vh;
+	width: 20vw;
+
+	margin-bottom: 0.5rem;
+	margin-left: 0.5rem;
+	padding: 0.25rem;
+}

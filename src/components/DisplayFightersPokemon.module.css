@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=VT323&display=swap");
+
+.fighter-move--form,
+.pokemon-move--form {
+	font-family: "VT323", monospace;
+	font-size: 1rem;
+	color: rgb(34, 31, 31);
+	background: #3d7dca;
+	width: 15vw;
+	font-weight: 500;
+
+	margin-left: 0.5rem;
+	padding: 0.25rem;
+	box-shadow: 0.25rem 0.25rem 0rem black;
+}
