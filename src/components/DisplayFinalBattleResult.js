@@ -7,7 +7,7 @@ const DisplayFinalBattleResult = ({ fighterMove, finalPokemonMove }) => {
 		</div>
 	) : (
 		<div className="final-loser">
-			<h2>LOSER Refresh and TRY AGAIN</h2>
+			<h2>LOSER Refresh and TRY AGAIN (or try changing your move)</h2>
 		</div>
 	);
 };

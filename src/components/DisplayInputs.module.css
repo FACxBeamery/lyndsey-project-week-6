@@ -12,21 +12,22 @@
 	font-family: "VT323", monospace;
 	font-size: 1rem;
 	border: none;
-	border: 0.25rem solid #3d7dca;
+	border: 0.25rem solid black;
 	margin-right: 1.5rem;
 	color: #333;
 	padding: 0.5rem;
-	box-shadow: 0.25rem 0.25rem 0rem #3d7dca;
+	box-shadow: 0.25rem 0.25rem 0rem black;
 }
 
 .first--button {
 	color: rgb(34, 31, 31);
 	background: #3d7dca;
+	width: 15vw;
 	font-family: "VT323", monospace;
 	font-weight: 500;
 	font-size: 1.5rem;
 	margin-top: 0.5rem;
 	margin-left: 0.5rem;
-	border: 0.1rem solid #003a70;
 	padding: 0.25rem;
+	box-shadow: 0.25rem 0.25rem 0rem black;
 }
