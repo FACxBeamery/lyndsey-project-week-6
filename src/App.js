@@ -6,7 +6,8 @@ import DisplayInputs from "./components/DisplayInputs";
 import DisplayPokemon from "./components/DisplayPokemon";
 import DisplayFighters from "./components/DisplayFighters";
 import DisplayBattle from "./components/DisplayBattle";
-import DisplayFinalResult from "./components/DisplayFinalResult";
+import DisplayFinalBattle from "./components/DisplayFinalBattle";
+import DisplayFinalBattleResult from "./components/DisplayFinalBattleResult";
 
 function App() {
 	const [pokemon, setPokemon] = React.useState({});
@@ -17,7 +18,9 @@ function App() {
 	const [fighterMove, setFighterMove] = React.useState("");
 	const [finalPokemonName, setFinalPokemonName] = React.useState("");
 	const [finalPokemon, setFinalPokemon] = React.useState("");
+	const [finalPokemonMove, setFinalPokemonMove] = React.useState("");
 	const [state, setState] = React.useState(0);
+
 	return (
 		<main>
 			<div className="App">
@@ -65,13 +68,23 @@ function App() {
 					""
 				)}
 				{pokemonName ? (
-					<DisplayFinalResult
+					<DisplayFinalBattle
 						state={state}
 						finalPokemon={finalPokemon}
 						finalPokemonName={finalPokemonName}
 						setFinalPokemon={setFinalPokemon}
-						pokemonMove={pokemonMove}
-						setPokemonMove={setPokemonMove}
+						finalPokemonMove={finalPokemonMove}
+						setFinalPokemonMove={setFinalPokemonMove}
+					/>
+				) : (
+					""
+				)}
+				{finalPokemonMove ? (
+					<DisplayFinalBattleResult
+						fighterMove={fighterMove}
+						finalPokemonMove={finalPokemonMove}
+						finalPokemonName={finalPokemonName}
+						setFinalPokemonName={setFinalPokemonName}
 					/>
 				) : (
 					""
