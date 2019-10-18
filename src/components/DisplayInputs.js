@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./DisplayInputs.module.css";
 
 const DisplayInputs = ({
 	setState,
@@ -29,8 +30,9 @@ const DisplayInputs = ({
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} className={styles["form"]}>
 			<input
+				className={styles["first--form--input"]}
 				type="text"
 				name="name-query"
 				id="name-query"
@@ -40,6 +42,7 @@ const DisplayInputs = ({
 			/>
 			Please enter your name, warrior
 			<input
+				className={styles["first--form--input"]}
 				type="text"
 				name="search-query"
 				id="search-query"
@@ -47,7 +50,11 @@ const DisplayInputs = ({
 				onChange={handleOnChange1}
 				value={pokemonNameEntered}
 			/>
-			<button type="submit" id="submit-request" className="button">
+			<button
+				className={styles["first--button"]}
+				type="submit"
+				id="submit-request"
+			>
 				Find me it!
 			</button>
 		</form>

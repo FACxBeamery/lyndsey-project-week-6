@@ -1,13 +1,13 @@
 import React from "react";
 import { getPokemonAPI } from "../utilFunctions/getPokemonAPI";
 
-const DisplayFinalResult = ({
+const DisplayFinalBattle = ({
 	finalPokemon,
 	finalPokemonName,
 	setFinalPokemon,
 	state,
-	pokemonMove,
-	setPokemonMove
+	finalPokemonMove,
+	setFinalPokemonMove
 }) => {
 	React.useEffect(() => {
 		getPokemonAPI(finalPokemonName).then((data) => {
@@ -28,7 +28,7 @@ const DisplayFinalResult = ({
 					name={pokemonName1}
 					onChange={(event) => {
 						event.preventDefault();
-						setPokemonMove(event.target.value);
+						setFinalPokemonMove(event.target.value);
 					}}
 				>
 					<option hidden disabled selected value>
@@ -43,4 +43,4 @@ const DisplayFinalResult = ({
 	) : null;
 };
 
-export default DisplayFinalResult;
+export default DisplayFinalBattle;
