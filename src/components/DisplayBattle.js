@@ -23,7 +23,7 @@ const DisplayBattle = ({
 		setFinalPokemonNameEntered(e.target.value);
 	};
 
-	return pokemonMove.length > fighterMove.length ? (
+	return pokemonMove.length < fighterMove.length ? (
 		<div>
 			<h1>WINNER!!!</h1>
 

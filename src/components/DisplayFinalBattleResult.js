@@ -1,18 +1,13 @@
 import React from "react";
 
-const DisplayFinalBattleResult = ({
-	fighterMove,
-	finalPokemonMove,
-	finalPokemonName,
-	setFinalPokemonName
-}) => {
-	return finalPokemonMove.length > fighterMove.length ? (
-		<div>
-			<h1>WINNER!!!</h1>
+const DisplayFinalBattleResult = ({ fighterMove, finalPokemonMove }) => {
+	return finalPokemonMove.length < fighterMove.length ? (
+		<div className="final-winner">
+			<h1>🎉🎉🎉🎉🎉🎉FINAL WINNER!!!🎉🎉🎉🎉🎉</h1>
 		</div>
 	) : (
-		<div>
-			<h2>LOSER</h2>
+		<div className="final-loser">
+			<h2>LOSER Refresh and TRY AGAIN</h2>
 		</div>
 	);
 };

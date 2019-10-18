@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./App.css";
+import styles from "./App.module.css";
 import { getPokemonAPI } from "./utilFunctions/getPokemonAPI";
 import DisplayInputs from "./components/DisplayInputs";
 import DisplayPokemon from "./components/DisplayPokemon";
@@ -22,75 +22,73 @@ function App() {
 	const [state, setState] = React.useState(0);
 
 	return (
-		<main>
-			<div className="App">
-				<h1> PokeFighter</h1>
-				<DisplayInputs
-					setState={setState}
-					setPokemonName={setPokemonName}
-					setFighterName={setFighterName}
+		// <main>
+		<div className={styles["root"]}>
+			<h1> PokeFighter</h1>
+			<DisplayInputs
+				setState={setState}
+				setPokemonName={setPokemonName}
+				setFighterName={setFighterName}
+				pokemonName={pokemonName}
+				fighterName={fighterName}
+			/>
+			{pokemonName ? (
+				<DisplayPokemon
+					state={state}
+					pokemon={pokemon}
 					pokemonName={pokemonName}
-					fighterName={fighterName}
+					setPokemon={setPokemon}
+					pokemonMove={pokemonMove}
+					setPokemonMove={setPokemonMove}
 				/>
-				{pokemonName ? (
-					<DisplayPokemon
-						state={state}
-						pokemon={pokemon}
-						pokemonName={pokemonName}
-						setPokemon={setPokemon}
-						pokemonMove={pokemonMove}
-						setPokemonMove={setPokemonMove}
-					/>
-				) : (
-					""
-				)}
-				{fighterName ? (
-					<DisplayFighters
-						state={state}
-						fighter={fighter}
-						fighterName={fighterName}
-						setFighter={setFighter}
-						fighterMove={fighterMove}
-						setFighterMove={setFighterMove}
-					/>
-				) : (
-					""
-				)}
-				{pokemonMove && fighterMove ? (
-					<DisplayBattle
-						fighterMove={fighterMove}
-						pokemonMove={pokemonMove}
-						pokemonName={pokemonName}
-						setFinalPokemonName={setFinalPokemonName}
-						setState={setState}
-					/>
-				) : (
-					""
-				)}
-				{pokemonName ? (
-					<DisplayFinalBattle
-						state={state}
-						finalPokemon={finalPokemon}
-						finalPokemonName={finalPokemonName}
-						setFinalPokemon={setFinalPokemon}
-						finalPokemonMove={finalPokemonMove}
-						setFinalPokemonMove={setFinalPokemonMove}
-					/>
-				) : (
-					""
-				)}
-				{finalPokemonMove ? (
-					<DisplayFinalBattleResult
-						fighterMove={fighterMove}
-						finalPokemonMove={finalPokemonMove}
-						finalPokemonName={finalPokemonName}
-						setFinalPokemonName={setFinalPokemonName}
-					/>
-				) : (
-					""
-				)}
-			</div>
-		</main>
+			) : (
+				""
+			)}
+			{fighterName ? (
+				<DisplayFighters
+					state={state}
+					fighter={fighter}
+					fighterName={fighterName}
+					setFighter={setFighter}
+					fighterMove={fighterMove}
+					setFighterMove={setFighterMove}
+				/>
+			) : (
+				""
+			)}
+			{pokemonMove && fighterMove ? (
+				<DisplayBattle
+					fighterMove={fighterMove}
+					pokemonMove={pokemonMove}
+					pokemonName={pokemonName}
+					setFinalPokemonName={setFinalPokemonName}
+					setState={setState}
+				/>
+			) : (
+				""
+			)}
+			{pokemonName ? (
+				<DisplayFinalBattle
+					state={state}
+					finalPokemon={finalPokemon}
+					finalPokemonName={finalPokemonName}
+					setFinalPokemon={setFinalPokemon}
+					finalPokemonMove={finalPokemonMove}
+					setFinalPokemonMove={setFinalPokemonMove}
+				/>
+			) : (
+				""
+			)}
+			{finalPokemonMove ? (
+				<DisplayFinalBattleResult
+					fighterMove={fighterMove}
+					finalPokemonMove={finalPokemonMove}
+				/>
+			) : (
+				""
+			)}
+		</div>
+		// </main>
 	);
 }
 
