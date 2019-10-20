@@ -1,4 +1,4 @@
-const fighters = [
+const fightersDB = [
 	{
 		name: "Lyndsey",
 		move1: "scream and kick",
@@ -46,4 +46,4 @@ const fighters = [
 	}
 ];
 
-module.exports = fighters;
+module.exports = fightersDB;

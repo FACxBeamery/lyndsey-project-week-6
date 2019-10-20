@@ -18,10 +18,6 @@ const DisplayPokemon = ({
 					moveName2: data.moves[1].move.name
 				});
 			});
-		} else {
-			alert(
-				"Oops! there isn't a pokemon with that name, please enter a valid pokemon"
-			);
 		}
 	}, [pokemonName, setPokemon, state]);
 
@@ -48,6 +44,8 @@ const DisplayPokemon = ({
 				</select>
 			</form>
 		</div>
-	) : null;
+	) : (
+		<h3>Oops! Looks like that pokemon doesn't exist, try another name.</h3>
+	);
 };
 export default DisplayPokemon;

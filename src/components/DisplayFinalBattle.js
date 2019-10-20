@@ -17,7 +17,7 @@ const DisplayFinalBattle = ({
 				moveName2: data.moves[1].move.name
 			});
 		});
-	}, [finalPokemonName, setFinalPokemon, state]);
+	}, [finalPokemonName, setFinalPokemon, finalPokemon, state]);
 	const { moveName1, moveName2, pokemonName1 } = finalPokemon;
 
 	return finalPokemon ? (

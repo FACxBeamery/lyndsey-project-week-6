@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./DisplayInputs.module.css";
+const fightersDB = require("../fighters");
 
 const DisplayInputs = ({
 	setState,
@@ -18,7 +19,6 @@ const DisplayInputs = ({
 			setFighterName(fighterNameEntered);
 			setState((state) => state + 1);
 			console.log(pokemonName);
-			console.log(fighterName);
 		}
 	};
 
