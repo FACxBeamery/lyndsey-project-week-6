@@ -39,7 +39,6 @@ function App() {
 					pokemon={pokemon}
 					pokemonName={pokemonName}
 					setPokemon={setPokemon}
-					pokemonMove={pokemonMove}
 					setPokemonMove={setPokemonMove}
 				/>
 			) : (
@@ -51,7 +50,6 @@ function App() {
 					fighter={fighter}
 					fighterName={fighterName}
 					setFighter={setFighter}
-					fighterMove={fighterMove}
 					setFighterMove={setFighterMove}
 				/>
 			) : (
@@ -74,7 +72,6 @@ function App() {
 					finalPokemon={finalPokemon}
 					finalPokemonName={finalPokemonName}
 					setFinalPokemon={setFinalPokemon}
-					finalPokemonMove={finalPokemonMove}
 					setFinalPokemonMove={setFinalPokemonMove}
 				/>
 			) : (

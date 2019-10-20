@@ -16,7 +16,7 @@ h1 {
 
 img {
 	height: 25vh;
-	width: 20vw;
+	width: auto;
 
 	margin-bottom: 0.5rem;
 	margin-left: 0.5rem;

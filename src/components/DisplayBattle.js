@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./DisplayBattle.module.css";
 
 const DisplayBattle = ({
 	fighterMove,
@@ -36,8 +37,19 @@ const DisplayBattle = ({
 					placeholder="Search for a pokemon"
 					onChange={finalHandleOnChange1}
 					value={finalPokemonNameEntered}
+					className={
+						finalPokemonNameEntered === ""
+							? `${styles["battle--form--input"]} ${
+									styles["battle--form--input--error"]
+							  }`
+							: styles["battle--form--input"]
+					}
 				/>
-				<button type="submit" id="submit-request" className="button">
+				<button
+					type="submit"
+					id="submit-request"
+					className={styles["battle--button"]}
+				>
 					Final battle
 				</button>
 			</form>
@@ -54,8 +66,20 @@ const DisplayBattle = ({
 					placeholder="Search for a pokemon"
 					onChange={finalHandleOnChange1}
 					value={finalPokemonNameEntered}
+					className={
+						finalPokemonNameEntered === ""
+							? `${styles["battle--form--input"]} ${
+									styles["battle--form--input--error"]
+							  }`
+							: styles["battle--form--input"]
+					}
+					required
 				/>
-				<button type="submit" id="submit-request" className="button">
+				<button
+					className={styles["battle--button"]}
+					type="submit"
+					id="submit-request"
+				>
 					Final battle
 				</button>
 			</form>

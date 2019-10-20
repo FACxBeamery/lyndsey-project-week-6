@@ -7,7 +7,6 @@ const DisplayFighters = ({
 	fighterName,
 	setFighter,
 	state,
-	fighterMove,
 	setFighterMove
 }) => {
 	// const handleFighterMoveSubmit = (e) => {
@@ -19,29 +18,36 @@ const DisplayFighters = ({
 	// };
 
 	React.useEffect(() => {
-		const newFighter = fightersDB.filter(
-			(fighter) => fighter.name === fighterName
-		)[0];
+		if (fighter) {
+			const newFighter = fightersDB.filter(
+				(fighter) => fighter.name === fighterName
+			)[0];
 
-		setFighter({
-			fighterName: newFighter.name,
-			fighterMove1: newFighter.move1,
-			fighterMove2: newFighter.move2
-		});
-	}, [fighterName, setFighter, state]);
+			setFighter({
+				fighterName: newFighter.name,
+				fighterMove1: newFighter.move1,
+				fighterMove2: newFighter.move2
+			});
+		} else {
+			alert(
+				"Oops! There isn't a FAC fighter with that name, please try another name."
+			);
+		}
+	}, [fighter, fighterName, setFighter, state]);
 
 	const { fighterMove1, fighterMove2 } = fighter;
 
-	return fighter ? (
+	return fighterMove1 && fighterMove2 ? (
 		<div>
 			Fighter Move
-			<form className={styles["fighter-move--form"]}>
+			<form>
 				<select
 					name={fighterName}
 					onChange={(event) => {
 						event.preventDefault();
 						setFighterMove(event.target.value);
 					}}
+					className={styles["fighter-move--form-select"]}
 				>
 					<option hidden disabled selected value>
 						{" "}
