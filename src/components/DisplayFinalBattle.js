@@ -6,7 +6,7 @@ const DisplayFinalBattle = ({
 	finalPokemon,
 	finalPokemonName,
 	setFinalPokemon,
-	state,
+	finalState,
 	setFinalPokemonMove
 }) => {
 	React.useEffect(() => {
@@ -19,7 +19,7 @@ const DisplayFinalBattle = ({
 				});
 			});
 		}
-	}, [finalPokemonName, setFinalPokemon, finalPokemon, state]);
+	}, [finalPokemonName, setFinalPokemon, finalState]);
 	const { finalMoveName1, finalMoveName2, finalPokemonName1 } = finalPokemon;
 
 	return finalMoveName1 && finalMoveName2 ? (

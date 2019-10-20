@@ -6,22 +6,22 @@ const DisplayBattle = ({
 	pokemonMove,
 	pokemonName,
 	setFinalPokemonName,
-	setState
+	setFinalState
 }) => {
 	const [
 		finalPokemonNameEntered,
 		setFinalPokemonNameEntered
-	] = React.useState("");
+	] = React.useState(null);
 	const handlefinalSubmit = (e) => {
 		if (e) {
 			e.preventDefault();
 			setFinalPokemonName(finalPokemonNameEntered);
-			setState((state) => state + 1);
+			setFinalState((finalState) => finalState + 1);
 			console.log(pokemonName);
 		}
 	};
 	const finalHandleOnChange1 = (e) => {
-		setFinalPokemonNameEntered(e.target.value);
+		setFinalPokemonNameEntered(e.target.value.toLowerCase());
 	};
 
 	return pokemonMove.length < fighterMove.length ? (
@@ -56,8 +56,8 @@ const DisplayBattle = ({
 		</div>
 	) : (
 		<div>
-			<h2>LOSER</h2>
-			<form onSubmit={handlefinalSubmit}>
+			<h2>LOSER! (Hint: try changing your move) </h2>
+			{/* <form onSubmit={handlefinalSubmit}>
 				Wow loser, try another battle
 				<input
 					type="text"
@@ -82,7 +82,7 @@ const DisplayBattle = ({
 				>
 					Final battle
 				</button>
-			</form>
+			</form> */}
 		</div>
 	);
 };

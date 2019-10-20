@@ -19,6 +19,7 @@ function App() {
 	const [finalPokemon, setFinalPokemon] = React.useState("");
 	const [finalPokemonMove, setFinalPokemonMove] = React.useState("");
 	const [state, setState] = React.useState(0);
+	const [finalState, setFinalState] = React.useState(0);
 
 	return (
 		// <main>
@@ -63,14 +64,14 @@ function App() {
 					pokemonMove={pokemonMove}
 					pokemonName={pokemonName}
 					setFinalPokemonName={setFinalPokemonName}
-					setState={setState}
+					setFinalState={setFinalState}
 				/>
 			) : (
 				""
 			)}
 			{pokemonName ? (
 				<DisplayFinalBattle
-					state={state}
+					finalState={finalState}
 					finalPokemon={finalPokemon}
 					finalPokemonName={finalPokemonName}
 					setFinalPokemon={setFinalPokemon}

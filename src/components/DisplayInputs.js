@@ -23,10 +23,10 @@ const DisplayInputs = ({
 	};
 
 	const handleOnChange1 = (e) => {
-		setPokemonNameEntered(e.target.value);
+		setPokemonNameEntered(e.target.value.toLowerCase());
 	};
 	const handleOnChange2 = (e) => {
-		setFighterNameEntered(e.target.value);
+		setFighterNameEntered(e.target.value.toLowerCase());
 	};
 
 	return (
