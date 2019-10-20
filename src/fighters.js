@@ -1,7 +1,7 @@
 const fightersDB = [
 	{
 		name: "lyndsey",
-		move1: "scream and kick",
+		move1: "kick ankle",
 		move2: "drag"
 	},
 	{
@@ -21,7 +21,7 @@ const fightersDB = [
 	},
 	{
 		name: "thomas",
-		move1: "tell a bad joke",
+		move1: "tell bad joke",
 		move2: "drag"
 	},
 	{
