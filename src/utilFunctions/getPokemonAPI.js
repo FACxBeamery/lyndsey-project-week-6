@@ -12,12 +12,11 @@ export const getPokemonAPI = (name) => {
 	return fetch(url)
 		.then(checkResponse)
 
-		.catch(
-			alert(
-				"Look's like a server error on our end, check your network is connected!"
-			)
-			// 	(err) => {
-			// 	throw new Error(`failed getUserData fetch request`);
-			// }
-		);
+		.catch((err) => {
+			throw new Error(
+				alert(
+					"Look's like a server error on our end, check your network is connected!"
+				)
+			);
+		});
 };

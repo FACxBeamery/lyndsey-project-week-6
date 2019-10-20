@@ -21,7 +21,7 @@ const DisplayBattle = ({
 		}
 	};
 	const finalHandleOnChange1 = (e) => {
-		setFinalPokemonNameEntered(e.target.value);
+		setFinalPokemonNameEntered(e.target.value.toLowerCase());
 	};
 
 	return pokemonMove.length < fighterMove.length ? (
