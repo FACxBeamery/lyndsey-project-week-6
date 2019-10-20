@@ -1,7 +1,6 @@
 import React from "react";
 
 import styles from "./App.module.css";
-import { getPokemonAPI } from "./utilFunctions/getPokemonAPI";
 import DisplayInputs from "./components/DisplayInputs";
 import DisplayPokemon from "./components/DisplayPokemon";
 import DisplayFighters from "./components/DisplayFighters";
@@ -25,7 +24,10 @@ function App() {
 		// <main>
 		<div className={styles["root"]}>
 			<h1> PokeFighter</h1>
-			<img src="https://cdn.pixabay.com/photo/2018/04/13/16/13/pixel-3316924_960_720.png"></img>
+			<img
+				src="https://cdn.pixabay.com/photo/2018/04/13/16/13/pixel-3316924_960_720.png"
+				alt="a bulbasaur"
+			></img>
 			<DisplayInputs
 				setState={setState}
 				setPokemonName={setPokemonName}

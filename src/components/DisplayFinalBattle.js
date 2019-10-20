@@ -10,22 +10,24 @@ const DisplayFinalBattle = ({
 	setFinalPokemonMove
 }) => {
 	React.useEffect(() => {
-		getPokemonAPI(finalPokemonName).then((data) => {
-			setFinalPokemon({
-				pokemonName1: data.name,
-				moveName1: data.moves[0].move.name,
-				moveName2: data.moves[1].move.name
+		if (finalPokemonName) {
+			getPokemonAPI(finalPokemonName).then((data) => {
+				setFinalPokemon({
+					finalPokemonName1: data.name,
+					finalMoveName1: data.moves[0].move.name,
+					finalMoveName2: data.moves[1].move.name
+				});
 			});
-		});
+		}
 	}, [finalPokemonName, setFinalPokemon, finalPokemon, state]);
-	const { moveName1, moveName2, pokemonName1 } = finalPokemon;
+	const { finalMoveName1, finalMoveName2, finalPokemonName1 } = finalPokemon;
 
-	return finalPokemon ? (
+	return finalMoveName1 && finalMoveName2 ? (
 		<div>
 			Pokemon Move
 			<form>
 				<select
-					name={pokemonName1}
+					name={finalPokemonName1}
 					onChange={(event) => {
 						event.preventDefault();
 						setFinalPokemonMove(event.target.value);
@@ -36,12 +38,15 @@ const DisplayFinalBattle = ({
 						{" "}
 						-- select a pokemon move --{" "}
 					</option>
-					<option value={moveName1}>{moveName1}</option>
-					<option value={moveName2}>{moveName2}</option>
+					<option value={finalMoveName1}>{finalMoveName1}</option>
+					<option value={finalMoveName2}>{finalMoveName2}</option>
 				</select>
 			</form>
 		</div>
 	) : null;
+	// ) : (
+	// 	<h3>Oops! Looks like that pokemon doesn't exist, try another name.</h3>
+	// );
 };
 
 export default DisplayFinalBattle;
