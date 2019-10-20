@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./DisplayFightersPokemon.module.css";
 const fightersDB = require("../fighters");
 
 const DisplayFighters = ({
@@ -6,7 +7,6 @@ const DisplayFighters = ({
 	fighterName,
 	setFighter,
 	state,
-	fighterMove,
 	setFighterMove
 }) => {
 	// const handleFighterMoveSubmit = (e) => {
@@ -21,17 +21,18 @@ const DisplayFighters = ({
 		const newFighter = fightersDB.filter(
 			(fighter) => fighter.name === fighterName
 		)[0];
-
-		setFighter({
-			fighterName: newFighter.name,
-			fighterMove1: newFighter.move1,
-			fighterMove2: newFighter.move2
-		});
+		if (newFighter) {
+			setFighter({
+				fighterName: newFighter.name,
+				fighterMove1: newFighter.move1,
+				fighterMove2: newFighter.move2
+			});
+		}
 	}, [fighterName, setFighter, state]);
 
 	const { fighterMove1, fighterMove2 } = fighter;
 
-	return fighter ? (
+	return fighterMove1 && fighterMove2 ? (
 		<div>
 			Fighter Move
 			<form>
@@ -41,6 +42,7 @@ const DisplayFighters = ({
 						event.preventDefault();
 						setFighterMove(event.target.value);
 					}}
+					className={styles["fighter-move--form-select"]}
 				>
 					<option hidden disabled selected value>
 						{" "}
@@ -51,6 +53,8 @@ const DisplayFighters = ({
 				</select>
 			</form>
 		</div>
-	) : null;
+	) : (
+		<h3>Oops! Looks like that fighter doesn't exist, try another name.</h3>
+	);
 };
 export default DisplayFighters;

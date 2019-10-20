@@ -1,13 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=VT323&display=swap");
-
-.form {
-	display: flex;
-	justify-content: center;
-	flex-direction: row;
-	align-items: center;
-}
-
-.first--form--input {
+.battle--form--input {
 	width: 20vw;
 	font-family: "VT323", monospace;
 	font-size: 1rem;
@@ -19,7 +10,7 @@
 	box-shadow: 0.25rem 0.25rem 0rem black;
 }
 
-.first--button {
+.battle--button {
 	color: rgb(34, 31, 31);
 	background: #3d7dca;
 	width: 15vw;
@@ -32,14 +23,8 @@
 	box-shadow: 0.25rem 0.25rem 0rem black;
 }
 
-.first--form--input--error {
+.battle--form--input--error {
 	border: 0.25rem solid indianred;
 
 	box-shadow: 0.25rem 0.25rem 0rem indianred;
-}
-
-label {
-	display: flex;
-	flex-direction: column;
-	font-size: 1.5rem;
 }

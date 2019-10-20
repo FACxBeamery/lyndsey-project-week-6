@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./DisplayFightersPokemon.module.css";
 import { getPokemonAPI } from "../utilFunctions/getPokemonAPI";
 
 const DisplayPokemon = ({
@@ -6,22 +7,23 @@ const DisplayPokemon = ({
 	pokemonName,
 	setPokemon,
 	state,
-	pokemonMove,
 	setPokemonMove
 }) => {
 	React.useEffect(() => {
-		getPokemonAPI(pokemonName).then((data) => {
-			setPokemon({
-				pokemonName1: data.name,
-				moveName1: data.moves[0].move.name,
-				moveName2: data.moves[1].move.name
+		if (pokemonName) {
+			getPokemonAPI(pokemonName).then((data) => {
+				setPokemon({
+					pokemonName1: data.name,
+					moveName1: data.moves[0].move.name,
+					moveName2: data.moves[1].move.name
+				});
 			});
-		});
+		}
 	}, [pokemonName, setPokemon, state]);
 
 	const { moveName1, moveName2, pokemonName1 } = pokemon;
 
-	return pokemon ? (
+	return moveName1 && moveName2 ? (
 		<div>
 			Pokemon Move
 			<form>
@@ -31,6 +33,7 @@ const DisplayPokemon = ({
 						event.preventDefault();
 						setPokemonMove(event.target.value);
 					}}
+					className={styles["pokemon-move--form-select"]}
 				>
 					<option hidden disabled selected value>
 						{" "}
@@ -41,6 +44,8 @@ const DisplayPokemon = ({
 				</select>
 			</form>
 		</div>
-	) : null;
+	) : (
+		<h3>Oops! Looks like that pokemon doesn't exist, try another name.</h3>
+	);
 };
 export default DisplayPokemon;

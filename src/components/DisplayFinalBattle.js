@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./DisplayFinalBattle.module.css";
 import { getPokemonAPI } from "../utilFunctions/getPokemonAPI";
 
 const DisplayFinalBattle = ({
@@ -6,7 +7,6 @@ const DisplayFinalBattle = ({
 	finalPokemonName,
 	setFinalPokemon,
 	state,
-	finalPokemonMove,
 	setFinalPokemonMove
 }) => {
 	React.useEffect(() => {
@@ -17,7 +17,7 @@ const DisplayFinalBattle = ({
 				moveName2: data.moves[1].move.name
 			});
 		});
-	}, [finalPokemonName, setFinalPokemon, state]);
+	}, [finalPokemonName, setFinalPokemon, finalPokemon, state]);
 	const { moveName1, moveName2, pokemonName1 } = finalPokemon;
 
 	return finalPokemon ? (
@@ -30,6 +30,7 @@ const DisplayFinalBattle = ({
 						event.preventDefault();
 						setFinalPokemonMove(event.target.value);
 					}}
+					className={styles["pokemon-move--form-select"]}
 				>
 					<option hidden disabled selected value>
 						{" "}

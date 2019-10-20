@@ -25,6 +25,7 @@ function App() {
 		// <main>
 		<div className={styles["root"]}>
 			<h1> PokeFighter</h1>
+			<img src="https://cdn.pixabay.com/photo/2018/04/13/16/13/pixel-3316924_960_720.png"></img>
 			<DisplayInputs
 				setState={setState}
 				setPokemonName={setPokemonName}
@@ -38,7 +39,6 @@ function App() {
 					pokemon={pokemon}
 					pokemonName={pokemonName}
 					setPokemon={setPokemon}
-					pokemonMove={pokemonMove}
 					setPokemonMove={setPokemonMove}
 				/>
 			) : (
@@ -50,7 +50,6 @@ function App() {
 					fighter={fighter}
 					fighterName={fighterName}
 					setFighter={setFighter}
-					fighterMove={fighterMove}
 					setFighterMove={setFighterMove}
 				/>
 			) : (
@@ -73,7 +72,6 @@ function App() {
 					finalPokemon={finalPokemon}
 					finalPokemonName={finalPokemonName}
 					setFinalPokemon={setFinalPokemon}
-					finalPokemonMove={finalPokemonMove}
 					setFinalPokemonMove={setFinalPokemonMove}
 				/>
 			) : (
